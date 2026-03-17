@@ -27,6 +27,7 @@ The goal is to turn the repository into a clear, beginner-friendly knowledge bas
 - [Path 5: I Only Have a Phone](./path-5-phone-only.md)
 - [First Project: Start Small and Finish Something](./first-project.md)
 - [How to Choose a Stack](./how-to-choose-a-stack.md)
+- [Frontend vs Backend](./frontend-vs-backend.md)
 
 ### Architecture and Backend
 
@@ -69,11 +70,12 @@ If you are brand new:
 2. One of the setup paths (`Path 1` to `Path 5`)
 3. [First Project: Start Small and Finish Something](./first-project.md)
 4. [How to Choose a Stack](./how-to-choose-a-stack.md)
-5. [API Basics and API Stacks](./api-basics-and-api-stacks.md)
-6. [Prompting Basics: How to Ask Your AI Coding Agent Correctly](./prompting-basics.md)
-7. [Workflow Rules: How to Work With an AI Coding Agent Without Creating Chaos](./workflow-rules.md)
-8. [Git Safety: How to Avoid Losing Work](./git-safety.md)
-9. [Troubleshooting: What to Do When Something Breaks](./troubleshooting.md)
+5. [Frontend vs Backend](./frontend-vs-backend.md)
+6. [API Basics and API Stacks](./api-basics-and-api-stacks.md)
+7. [Prompting Basics: How to Ask Your AI Coding Agent Correctly](./prompting-basics.md)
+8. [Workflow Rules: How to Work With an AI Coding Agent Without Creating Chaos](./workflow-rules.md)
+9. [Git Safety: How to Avoid Losing Work](./git-safety.md)
+10. [Troubleshooting: What to Do When Something Breaks](./troubleshooting.md)
 
 If you want self-hosting next:
 
