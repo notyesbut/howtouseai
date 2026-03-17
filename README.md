@@ -41,6 +41,14 @@ Topics include:
 If you want a practical starting point, begin here:
 
 - [How to Start with AI Coding](./guides/how-to-start-with-ai-coding.md)
+- [Path 1: I Have a Windows Laptop or PC](./guides/path-1-windows-pc.md)
+- [Path 2: I Have a Mac](./guides/path-2-mac.md)
+- [Path 3: I Have Linux](./guides/path-3-linux.md)
+- [Path 4: My Computer Is Weak, or I Want a Remote Setup](./guides/path-4-vps-remote-setup.md)
+- [Path 5: I Only Have a Phone](./guides/path-5-phone-only.md)
+- [First Project: Start Small and Finish Something](./guides/first-project.md)
+- [Git Safety: How to Avoid Losing Work](./guides/git-safety.md)
+- [How to Get a Domain and Connect It Through Cloudflare](./guides/how-to-get-domain.md)
 
 ## Current Home
 

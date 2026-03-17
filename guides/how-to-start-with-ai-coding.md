@@ -62,13 +62,25 @@ Typical local paths:
 
 `Windows -> WSL2 -> Ubuntu -> Node.js -> Git -> VS Code -> coding agent`
 
+Recommended guide:
+
+- [Path 1: I Have a Windows Laptop or PC](./path-1-windows-pc.md)
+
 #### macOS
 
 `macOS -> Homebrew -> Node.js -> Git -> VS Code -> coding agent`
 
+Recommended guide:
+
+- [Path 2: I Have a Mac](./path-2-mac.md)
+
 #### Linux
 
 `Linux -> base packages -> Node.js -> Git -> VS Code or terminal -> coding agent`
+
+Recommended guide:
+
+- [Path 3: I Have Linux](./path-3-linux.md)
 
 ### Option B: No, not locally
 
@@ -91,6 +103,10 @@ Typical server path:
 6. Install your coding agent.
 7. Work remotely.
 
+Recommended guide:
+
+- [Path 4: My Computer Is Weak, or I Want a Remote Setup](./path-4-vps-remote-setup.md)
+
 ## Path 2: No, I Do Not Have a Computer
 
 You can still start.
@@ -111,6 +127,10 @@ This is the phone-first path:
 4. Work on the remote machine.
 5. Run your coding tools there.
 
+Recommended guide:
+
+- [Path 5: I Only Have a Phone](./path-5-phone-only.md)
+
 So no, a laptop is not strictly required to begin.
 
 ## Quick Decision Guide
@@ -120,6 +140,10 @@ Choose the path that fits you best:
 - If you already have a laptop or PC and want the simplest start, begin locally.
 - If your device is weak or you want a cleaner setup, use a remote server.
 - If you only have a phone, start with a VPS and SSH.
+
+After your setup is ready, continue here:
+
+- [First Project: Start Small and Finish Something](./first-project.md)
 
 ## Final Note
 
