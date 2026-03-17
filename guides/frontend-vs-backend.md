@@ -145,15 +145,19 @@ That is how the two sides cooperate.
 
 ## Example Flow Diagram
 
-```text
-User
-  -> Frontend page
-  -> API request
-  -> Backend
-  -> Database
-  -> Backend response
-  -> Frontend update
-  -> User sees result
+```mermaid
+flowchart LR
+    U["User"] --> B["Browser / Frontend page"]
+    B --> UI["UI interaction<br/>click / form / navigation"]
+    UI --> API["API request"]
+    API --> BE["Backend"]
+    BE --> LOGIC["Auth / validation / business logic"]
+    LOGIC --> DB["Database"]
+    DB --> LOGIC
+    LOGIC --> RESP["Backend response"]
+    RESP --> B
+    B --> UPDATE["Frontend update"]
+    UPDATE --> VIEW["User sees result"]
 ```
 
 ## Why the Split Matters
