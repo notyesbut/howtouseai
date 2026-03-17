@@ -95,6 +95,33 @@ That means:
 | MCP client | The MCP-aware integration layer inside the host | Connects to servers, discovers capabilities, calls them |
 | MCP server | The thing exposing useful functionality | Makes tools, resources, prompts, and related capabilities available |
 
+## MCP Is Not the AI Itself
+
+This is one of the biggest beginner confusions.
+
+MCP is **not**:
+
+- the model
+- the agent
+- the host application
+- the tool itself
+
+It is the structured connection layer that helps the AI system work with external capabilities.
+
+A simple anti-confusion table:
+
+| Thing | What it is |
+| --- | --- |
+| Model | The thing that generates and reasons over text/actions |
+| Agent | The model plus workflow and decision behavior |
+| Host app | The app/runtime the user is actually using |
+| MCP server | The capability surface exposed to the host |
+| Tool | A callable action exposed through MCP |
+
+So the practical rule is:
+
+**MCP is not the intelligence. MCP is part of the connection layer around the intelligence.**
+
 ## The Three Most Important MCP Primitives
 
 The three most important MCP concepts for most people are:
@@ -162,6 +189,20 @@ Good mental model:
 | Prompts | Reusable workflow prompts | Guiding how something should be done |
 
 This is one of the most important ways to understand MCP well.
+
+## When Beginners Should Care About MCP
+
+A very simple rule:
+
+- if you are just writing prompts in ChatGPT, you probably do not need to care about MCP yet
+- if you want AI to work with files, databases, GitHub, search, deployment, logs, or internal services, MCP starts becoming important
+- if you are building your own agent, runtime, or platform, MCP becomes especially important
+
+That is the easiest way to think about it.
+
+You do not need to start with MCP just because it exists.
+
+But once you want AI to interact with structured external systems in a reusable way, MCP becomes much more relevant.
 
 ## How AI Agents Use MCP
 
@@ -233,6 +274,11 @@ What matters is understanding:
 - local vs remote
 - bounded local tools vs shared remote service
 
+In one sentence:
+
+- `stdio` = local process sitting right next to the app
+- remote HTTP = MCP server somewhere on the network, shared by one or more users or agents
+
 ## How People Usually Connect MCP in Practice
 
 At a practical level, connecting MCP usually means:
@@ -244,6 +290,62 @@ At a practical level, connecting MCP usually means:
 5. verify that the host can discover its capabilities
 
 That is the practical connection model.
+
+## Everyday Examples
+
+Here are a few concrete examples that make MCP more tangible.
+
+### Example 1: AI coding app + filesystem/search/deploy server
+
+```text
+AI coding app
+  -> MCP client
+  -> local MCP server
+  -> file access / search / deploy helper tools
+```
+
+This is useful when the AI needs to do more than just answer in chat.
+
+It can:
+
+- inspect files
+- search code
+- read docs
+- help with deploy steps
+
+### Example 2: AI coding agent + docs + logs + database tools
+
+```text
+AI agent
+  -> MCP client
+  -> docs resource server
+  -> logs resource server
+  -> database tool server
+```
+
+This is useful when the AI needs to:
+
+- read documentation
+- inspect logs
+- query system state
+- reason about problems using structured context
+
+### Example 3: Team runtime + shared remote MCP for infrastructure
+
+```text
+Multiple users / agents
+  -> shared runtime
+  -> MCP client
+  -> remote MCP server
+  -> shared internal infrastructure capabilities
+```
+
+This is useful when a team wants:
+
+- shared tools
+- shared runtime inspection
+- common deployment helpers
+- shared operational workflows
 
 ## Local MCP Example
 
@@ -592,6 +694,212 @@ It means the agent is no longer limited to:
 - only the prompt
 - only the current repo
 - only whatever the host app manually hardcoded in one-off ways
+
+## MCP Can Also Be a Context Filter
+
+This is a very important idea.
+
+MCP is not only useful for giving an agent actions.
+
+It can also be very useful for **filtering what context the model actually receives**.
+
+That matters because one of the biggest practical AI problems is not only:
+
+```text
+"How do I give the model more information?"
+```
+
+It is also:
+
+```text
+"How do I avoid giving the model the wrong information, too much information, or noisy information?"
+```
+
+That is where MCP can become very powerful.
+
+## Why Context Filtering Matters
+
+When an AI model works on code or runtime state, raw context can easily become messy.
+
+For example:
+
+- too many files
+- too many logs
+- too much documentation
+- too much irrelevant code
+- too many possible search results
+
+If you dump all of that into the model, quality often gets worse, not better.
+
+So the real problem is often:
+
+- what should be selected
+- what should be excluded
+- what should be prioritized
+- what should be summarized
+
+That is context filtering.
+
+## Raw Context vs Filtered Context
+
+| Approach | What happens | Typical result |
+| --- | --- | --- |
+| Raw context dump | Too much is sent directly to the model | More noise, weaker focus |
+| Filtered context | Only the most relevant context is selected and shaped first | Cleaner reasoning, better answers |
+
+This is one of the strongest reasons MCP can matter in serious systems.
+
+## MCP as a Context Selection Layer
+
+A powerful MCP server does not only expose "more stuff."
+
+It can expose **better selected stuff**.
+
+That means the MCP server can sit between:
+
+- the model
+- the runtime
+- the knowledge sources
+- the code understanding systems
+
+and decide what should actually be surfaced.
+
+```mermaid
+flowchart LR
+    SRC["Code / Docs / Logs / DB / Runtime state"] --> FILTER["Selection layer<br/>RAG / Codegraph / rules / ranking"]
+    FILTER --> MCP["MCP server"]
+    MCP --> CLIENT["MCP client / host runtime"]
+    CLIENT --> MODEL["AI model"]
+```
+
+This is a much stronger pattern than:
+
+```text
+"just give the model everything"
+```
+
+## MCP + RAG
+
+RAG is useful because it helps retrieve the most relevant knowledge before the model answers.
+
+When MCP is placed in front of a RAG system, MCP can expose:
+
+- retrieval tools
+- ranked search results
+- filtered document resources
+- operator-reviewed knowledge surfaces
+
+That means MCP is not only a transport layer.
+
+It can become the layer that says:
+
+- which retrieval path to use
+- which result set to expose
+- which result format the model should see
+- what should stay out
+
+### MCP + RAG mental model
+
+```mermaid
+flowchart LR
+    Q["User question"] --> RAG["RAG retrieval layer"]
+    RAG --> RANK["Ranking / filtering"]
+    RANK --> MCP["MCP resource or tool surface"]
+    MCP --> MODEL["AI model"]
+```
+
+## MCP + Codegraph
+
+Codegraph-style systems are useful because they help the agent understand code structure more intelligently than raw file dumping.
+
+A codegraph can help answer questions like:
+
+- which files matter most
+- which symbols are related
+- what changed
+- where call paths go
+- what code is high impact
+
+If MCP sits in front of codegraph-style capability, then MCP can expose:
+
+- codegraph query tools
+- related-file resources
+- impact-analysis resources
+- narrowed code context instead of whole-repo noise
+
+That means the model gets:
+
+- more relevant code
+- less irrelevant code
+- better structured context
+
+### MCP + Codegraph mental model
+
+```mermaid
+flowchart LR
+    TASK["Coding task / bug / review"] --> CG["Codegraph / structure analysis"]
+    CG --> NARROW["Relevant files / symbols / impact"]
+    NARROW --> MCP["MCP server"]
+    MCP --> MODEL["AI model"]
+```
+
+## RAG vs Codegraph vs Combined
+
+| Layer | Best for | What it filters |
+| --- | --- | --- |
+| RAG | Knowledge/document retrieval | Which docs, notes, or knowledge chunks matter |
+| Codegraph | Code structure understanding | Which files, symbols, and relationships matter |
+| MCP | Exposure and delivery layer | What the agent/model can actually see and use |
+
+This is why a stronger runtime can combine them.
+
+RAG helps with knowledge.
+Codegraph helps with code structure.
+MCP helps expose the right filtered surfaces to the agent.
+
+## What This Means in a Custom Governed Runtime
+
+In a more serious custom runtime, MCP can sit on top of:
+
+- retrieval systems
+- codegraph systems
+- planner systems
+- runtime-inspection systems
+- memory systems
+
+and decide what becomes available as:
+
+- tools
+- resources
+- prompts
+
+That means MCP can become a practical context-control layer, not only a tool registry.
+
+## Why This Is Powerful
+
+Because better AI behavior often depends less on "more total context" and more on:
+
+- better selected context
+- better ordered context
+- safer context
+- more relevant context
+
+That is exactly the kind of thing a custom MCP layer can help enforce.
+
+## A Simple Before vs After for Code Work
+
+| Mode | What the model sees |
+| --- | --- |
+| No filtering | Large raw file dump, logs, docs, mixed noise |
+| MCP + filtering | Ranked docs, relevant files, impact paths, filtered runtime context |
+
+That difference can be huge for:
+
+- code review
+- debugging
+- deployment investigation
+- multi-file refactors
+- agent planning
 
 ## What MCP Can Look Like in a Custom Governed Runtime
 
