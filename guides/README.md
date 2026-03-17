@@ -26,6 +26,7 @@ The goal is to turn the repository into a clear, beginner-friendly knowledge bas
 - [Path 4: My Computer Is Weak, or I Want a Remote Setup](./path-4-vps-remote-setup.md)
 - [Path 5: I Only Have a Phone](./path-5-phone-only.md)
 - [First Project: Start Small and Finish Something](./first-project.md)
+- [How to Choose a Stack](./how-to-choose-a-stack.md)
 
 ### Prompting and Agent Workflow
 
@@ -53,7 +54,6 @@ The repository is also growing toward guides such as:
 - vector search and retrieval
 - recommendation systems
 - how AI stacks differ
-- how to choose a stack for a project
 - local vs VPS vs managed deployment tradeoffs
 - practical self-deployment playbooks
 
@@ -64,10 +64,11 @@ If you are brand new:
 1. [How to Start with AI Coding](./how-to-start-with-ai-coding.md)
 2. One of the setup paths (`Path 1` to `Path 5`)
 3. [First Project: Start Small and Finish Something](./first-project.md)
-4. [Prompting Basics: How to Ask Your AI Coding Agent Correctly](./prompting-basics.md)
-5. [Workflow Rules: How to Work With an AI Coding Agent Without Creating Chaos](./workflow-rules.md)
-6. [Git Safety: How to Avoid Losing Work](./git-safety.md)
-7. [Troubleshooting: What to Do When Something Breaks](./troubleshooting.md)
+4. [How to Choose a Stack](./how-to-choose-a-stack.md)
+5. [Prompting Basics: How to Ask Your AI Coding Agent Correctly](./prompting-basics.md)
+6. [Workflow Rules: How to Work With an AI Coding Agent Without Creating Chaos](./workflow-rules.md)
+7. [Git Safety: How to Avoid Losing Work](./git-safety.md)
+8. [Troubleshooting: What to Do When Something Breaks](./troubleshooting.md)
 
 If you want self-hosting next:
 
