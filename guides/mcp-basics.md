@@ -297,11 +297,13 @@ Here are a few concrete examples that make MCP more tangible.
 
 ### Example 1: AI coding app + filesystem/search/deploy server
 
-```text
-AI coding app
-  -> MCP client
-  -> local MCP server
-  -> file access / search / deploy helper tools
+```mermaid
+flowchart LR
+    APP["AI coding app"] --> CLIENT["MCP client"]
+    CLIENT --> SERVER["Local MCP server"]
+    SERVER --> FS["Filesystem tools"]
+    SERVER --> SEARCH["Code / docs search"]
+    SERVER --> DEPLOY["Deploy helper tools"]
 ```
 
 This is useful when the AI needs to do more than just answer in chat.
@@ -315,12 +317,12 @@ It can:
 
 ### Example 2: AI coding agent + docs + logs + database tools
 
-```text
-AI agent
-  -> MCP client
-  -> docs resource server
-  -> logs resource server
-  -> database tool server
+```mermaid
+flowchart LR
+    AGENT["AI coding agent"] --> CLIENT["MCP client"]
+    CLIENT --> DOCS["Docs resource server"]
+    CLIENT --> LOGS["Logs resource server"]
+    CLIENT --> DB["Database tool server"]
 ```
 
 This is useful when the AI needs to:
@@ -332,12 +334,12 @@ This is useful when the AI needs to:
 
 ### Example 3: Team runtime + shared remote MCP for infrastructure
 
-```text
-Multiple users / agents
-  -> shared runtime
-  -> MCP client
-  -> remote MCP server
-  -> shared internal infrastructure capabilities
+```mermaid
+flowchart LR
+    USERS["Multiple users / agents"] --> RUNTIME["Shared runtime"]
+    RUNTIME --> CLIENT["MCP client"]
+    CLIENT --> REMOTE["Remote MCP server"]
+    REMOTE --> INFRA["Shared internal infrastructure capabilities"]
 ```
 
 This is useful when a team wants:
