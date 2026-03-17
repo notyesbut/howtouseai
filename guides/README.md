@@ -42,6 +42,7 @@ The goal is to turn the repository into a clear, beginner-friendly knowledge bas
 - [Prompting Basics: How to Ask Your AI Coding Agent Correctly](./prompting-basics.md)
 - [Workflow Rules: How to Work With an AI Coding Agent Without Creating Chaos](./workflow-rules.md)
 - [AI Agent Rules: How Your Coding Agent Should Behave Inside Your Repository](./ai-agent-rules.md)
+- [MCP Basics](./mcp-basics.md)
 
 ### Safe Development
 

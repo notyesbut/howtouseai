@@ -391,3 +391,7 @@ That is what agent rules should mean in practice.
 - [Agent approvals & security](https://developers.openai.com/codex/agent-approvals-security)
 - [Best practices](https://developers.openai.com/codex/learn/best-practices)
 - [Custom instructions with AGENTS.md](https://developers.openai.com/codex/guides/agents-md)
+
+If you want to understand how agents connect to structured external capabilities, continue here:
+
+- [MCP Basics](./mcp-basics.md)
