@@ -36,6 +36,12 @@ Topics include:
 - simple workflows that save time and reduce friction
 - guidance for people with different levels of experience
 
+## Starter Guides
+
+If you want a practical starting point, begin here:
+
+- [How to Start with AI Coding](./guides/how-to-start-with-ai-coding.md)
+
 ## Current Home
 
 Right now, the project already has a live home on Discord, where I have started building the base server and publishing the first guides.
